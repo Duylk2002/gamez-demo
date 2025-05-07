@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp1bupb0lmdkt"]
+
+[ext_resource type="Shader" uid="uid://dff5c4vfm2amk" path="res://water.tres" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://cflycochbtax1" path="res://ship-pirate-small.glb" id="2_r0du0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cm0pq"]
+render_priority = 0
+shader = ExtResource("1_uu6xs")
+shader_parameter/ColorParameter = Color(0, 0.266667, 0.533333, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fos0i"]
+material = SubResource("ShaderMaterial_cm0pq")
+size = Vector2(100, 100)
+subdivide_width = 20
+subdivide_depth = 20
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_fos0i")
+
+[node name="ship-pirate-small2" parent="." instance=ExtResource("2_r0du0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.04334, 0)
