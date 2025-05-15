@@ -14,11 +14,12 @@ operator = 5
 constant = 0.8
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_4hbtk"]
+constant = 0.2
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_faptx"]
 parameter_name = "ColorParameter"
 default_value_enabled = true
-default_value = Color(0, 0.266667, 0.533333, 1)
+default_value = Color(0.000183859, 0.510932, 0.980049, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ijlu1"]
 noise_type = 2
@@ -81,7 +82,7 @@ default_input_values = [0, Vector4(0, 0, 0, 0), 1, Vector4(1, 1, 1, 1), 2, Vecto
 op_type = 3
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_5q1e4"]
-default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(0.4, 0.4, 0.4)]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(0.6, 0.6, 0.6)]
 operator = 2
 
 [resource]
@@ -89,7 +90,7 @@ code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
 uniform sampler2D tex_vtx_4;
-uniform vec4 ColorParameter : source_color = vec4(0.000000, 0.266667, 0.533333, 1.000000);
+uniform vec4 ColorParameter : source_color = vec4(0.000184, 0.510932, 0.980049, 1.000000);
 uniform sampler2D tex_frg_3;
 uniform sampler2D tex_frg_7;
 
@@ -114,7 +115,7 @@ void vertex() {
 
 
 // VectorOp:8
-	vec3 n_in8p1 = vec3(0.40000, 0.40000, 0.40000);
+	vec3 n_in8p1 = vec3(0.60000, 0.60000, 0.60000);
 	vec3 n_out8p0 = n_out5p0 * n_in8p1;
 
 
@@ -181,7 +182,7 @@ void fragment() {
 
 
 // FloatConstant:13
-	float n_out13p0 = 0.000000;
+	float n_out13p0 = 0.200000;
 
 
 // Output:0
@@ -193,7 +194,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-616.693, -178.68)
+graph_offset = Vector2(-1076.63, -1826.88)
 nodes/vertex/0/position = Vector2(840, 180)
 nodes/vertex/2/node = SubResource("VisualShaderNodeInput_5qjys")
 nodes/vertex/2/position = Vector2(-1500, 160)

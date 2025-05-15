@@ -1,23 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp1bupb0lmdkt"]
+[gd_scene load_steps=6 format=3 uid="uid://dp1bupb0lmdkt"]
 
 [ext_resource type="Shader" uid="uid://dff5c4vfm2amk" path="res://water.tres" id="1_uu6xs"]
-[ext_resource type="PackedScene" uid="uid://cflycochbtax1" path="res://ship-pirate-small.glb" id="2_r0du0"]
+[ext_resource type="PackedScene" uid="uid://cknp16wq6shy6" path="res://addons/ship_controller/ShipController.tscn" id="2_uu6xs"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cm0pq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uu6xs"]
 render_priority = 0
 shader = ExtResource("1_uu6xs")
 shader_parameter/ColorParameter = Color(0, 0.266667, 0.533333, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fos0i"]
-material = SubResource("ShaderMaterial_cm0pq")
-size = Vector2(100, 100)
+material = SubResource("ShaderMaterial_uu6xs")
+size = Vector2(500, 500)
 subdivide_width = 20
 subdivide_depth = 20
+
+[sub_resource type="GDScript" id="GDScript_uu6xs"]
+script/source = "extends Node3D
+"
 
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0184727, 0, 0.105852)
 mesh = SubResource("PlaneMesh_fos0i")
 
-[node name="ship-pirate-small2" parent="." instance=ExtResource("2_r0du0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.04334, 0)
+[node name="ShipController" parent="." instance=ExtResource("2_uu6xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49883, -0.866455, 2.48749)
+script = SubResource("GDScript_uu6xs")
